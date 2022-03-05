@@ -16,7 +16,7 @@ function guardarProducto(nuevoProducto){
   escribirJSON(datosJSON);
   console.log('Producto nuevo guardado.')
 }
-
+ 
 function leerPorCategoria(propiedad, categoria){
   let todosLosProductos = leerArchivo();
   let coincidenConLaCategoria = todosLosProductos.filter(function(propiedad){

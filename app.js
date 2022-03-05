@@ -17,7 +17,7 @@ switch (miComando) {
         let imgProducto = argumentos[5];
         let categoria = argumentos[6];
         let colores = argumentos[7];
-        let precioProducto = argumentos[8];
+        let precioProducto = argumentos[8]; 
         let ruedas = argumentos[9];
         let id = argumentos[10];
 
