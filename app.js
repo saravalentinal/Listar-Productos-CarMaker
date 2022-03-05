@@ -1,5 +1,5 @@
 let process = require("process")
-let {leerArchivo,guardarTarea, leerPorEstado} = require("./funcionesDeTareas")
+let {leerArchivo,guardarProducto, leerPorCategoria} = require("./funcionesDeProductos")
 
 let argumentos = process.argv 
 let miComando = argumentos[2] 
@@ -12,20 +12,34 @@ switch (miComando) {
         })
         break;
     case "crear":
-        let tituloNuevaTarea = argumentos[3];
-        let estadoNuevo = argumentos[4];
-        let tareaPendiente = {
-            titulo : tituloNuevaTarea,
-            estado : estadoNuevo,
+        let nombreProducto = argumentos[3];
+        let descripcionProducto = argumentos[4];
+        let imgProducto = argumentos[5];
+        let categoria = argumentos[6];
+        let colores = argumentos[7];
+        let precioProducto = argumentos[8];
+        let ruedas = argumentos[9];
+        let id = argumentos[10];
+
+        let nuevoProducto = {
+            nombre : nombreProducto,
+            descripcion : descripcionProducto,
+            imagen : imgProducto,
+            categoria : categoria,
+            colores : colores,
+            precio : precioProducto,
+            ruedas : ruedas,
+            id : id
         }
-        guardarTarea(tareaPendiente);
+        guardarProducto(nuevoProducto);
         break;
         
     case "filtrar":
-        let estadoIngresado = argumentos[3];
-        let arrayDeTareasFiltradas = leerPorEstado(estadoIngresado);
-        arrayDeTareasFiltradas.forEach(function(elemento){
-            console.log(elemento.titulo);
+        let propiedadIngresada = argumentos[3];
+        let categoriaIngresada = argumentos[4];
+        let arrayDeProductosFiltrados = leerPorCategoria(categoriaIngresada);
+        arrayDeProductosFiltrados.forEach(function(producto){
+            console.log(producto.nombre);
         })
         break;
 
